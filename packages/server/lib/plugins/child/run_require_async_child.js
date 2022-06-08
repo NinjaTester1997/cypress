@@ -102,7 +102,7 @@ function run (ipc, file, projectRoot) {
       debug(`importing esm file %s`, fileURL)
 
       // Must use `import` for `.mjs` files - require is only for CommonJS.
-      return await import(fileURL)
+      return import(fileURL)
     } catch (err) {
       if (isExpectedError(file, err)) {
         debug('error loading file %s via native Node.js ESM module loader %s', file, err.message)
